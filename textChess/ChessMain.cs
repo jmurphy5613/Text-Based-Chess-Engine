@@ -18,9 +18,6 @@ namespace textChess
             int startRow = Convert.ToInt32(Console.ReadLine());
             List<string> list = game.FindLegalMoves(game.getBoard(), startFile, startRow, 'w');
             for (int i = 0; i < list.Count(); i++) Console.WriteLine(list[i]);
-
-            Console.WriteLine("Would you like to end the game?");
-            string response = Console.ReadLine();
         }
     }
 }
