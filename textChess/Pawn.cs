@@ -11,9 +11,6 @@ namespace textChess
         
         public static List<string> FindLegalMoves(string[][] board, int startFile, int startRow, char turn)
         {
-            //if the piece that is generating moves does not belong to the current turn, then it will return with an error
-            string current = board[startRow - 1][startFile - 1];
-
             //two possible ways to generate moves corresponding to the current players turn.
             List<string> moves = new List<string>();
             //The moves will be returned in a non-zero indexing

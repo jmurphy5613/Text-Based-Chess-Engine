@@ -76,6 +76,7 @@
     <Compile Include="ChessMain.cs" />
     <Compile Include="Pawn.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rook.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

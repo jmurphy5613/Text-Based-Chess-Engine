@@ -52,9 +52,11 @@ namespace textChess
             string currentPiece = board[startRow - 1][startFile - 1];
             List<string> legalMoves = new List<string>();
 
+            //if the piece that is generating moves does not belong to the current turn, then it will return with an error
             if (currentPiece.Equals("--")) { Console.WriteLine("There is no piece in that location!"); return new List<string>(); }
             else if (!currentPiece[0].Equals(turn)) { Console.WriteLine("That is not your piece!"); return new List<string>(); }
             else if (currentPiece[1].Equals('P')) legalMoves = Pawn.FindLegalMoves(getBoard(), startFile, startRow, turn);
+            else if (currentPiece[1].Equals('R')) legalMoves = Rook.FindLegalMoves(getBoard(), startFile, startRow, turn);
             return legalMoves;
  
         }
