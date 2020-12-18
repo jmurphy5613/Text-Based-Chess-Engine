@@ -1,2 +1,2 @@
 # TextChess
-Chess game that is run through the console
+Text based chess game where you can play against a computer
