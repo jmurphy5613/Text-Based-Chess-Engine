@@ -1,7 +1,6 @@
 C:\Users\John Murphy\source\repos\textChess\textChess\bin\Debug\textChess.exe.config
 C:\Users\John Murphy\source\repos\textChess\textChess\bin\Debug\textChess.exe
 C:\Users\John Murphy\source\repos\textChess\textChess\bin\Debug\textChess.pdb
-C:\Users\John Murphy\source\repos\textChess\textChess\obj\Debug\textChess.csprojAssemblyReference.cache
 C:\Users\John Murphy\source\repos\textChess\textChess\obj\Debug\textChess.csproj.CoreCompileInputs.cache
 C:\Users\John Murphy\source\repos\textChess\textChess\obj\Debug\textChess.exe
 C:\Users\John Murphy\source\repos\textChess\textChess\obj\Debug\textChess.pdb

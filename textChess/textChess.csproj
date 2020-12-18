@@ -74,6 +74,7 @@
   <ItemGroup>
     <Compile Include="GameState.cs" />
     <Compile Include="ChessMain.cs" />
+    <Compile Include="Knight.cs" />
     <Compile Include="Pawn.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rook.cs" />
