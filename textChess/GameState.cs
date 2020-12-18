@@ -57,6 +57,8 @@ namespace textChess
             else if (!currentPiece[0].Equals(turn)) { Console.WriteLine("That is not your piece!"); return new List<string>(); }
             else if (currentPiece[1].Equals('P')) legalMoves = Pawn.FindLegalMoves(getBoard(), startFile, startRow, turn);
             else if (currentPiece[1].Equals('R')) legalMoves = Rook.FindLegalMoves(getBoard(), startFile, startRow, turn);
+
+            if (legalMoves.Count() == 0) { Console.WriteLine("There are no leagal moves for this piece"); return new List<string>(); }
             return legalMoves;
  
         }

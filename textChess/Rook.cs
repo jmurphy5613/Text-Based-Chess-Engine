@@ -11,14 +11,49 @@ namespace textChess
         //Finds legal moves for the Rook
         public static List<string> FindLegalMoves(string[][] board, int startFile, int startRow, char turn)
         {
-            if(turn.Equals('w'))
+            List<string> moves = new List<string>();
+            if(turn.Equals('w') || turn.Equals('b'))
             {
-
+                int file = startFile - 1;
+                bool hasSeenAPiece = false;
+                //as far to the right
+                while(file < 7)
+                {
+                    file++;
+                    if (board[startRow - 1][file].Equals("--")) moves.Add((file + 1) + "," + (startRow));
+                    else if (!board[startRow - 1][file][0].Equals(turn) && !hasSeenAPiece) { moves.Add((file + 1) + "," + (startRow)); hasSeenAPiece = true; }
+                    else break;
+                }
+                file = startFile - 1;
+                hasSeenAPiece = false;
+                //as far to the left
+                while(file > 0)
+                {
+                    file--;
+                    if (board[startRow - 1][file].Equals("--")) moves.Add((file + 1) + "," + (startRow));
+                    else if (!board[startRow - 1][file][0].Equals(turn) && !hasSeenAPiece) { moves.Add((file + 1) + "," + (startRow)); hasSeenAPiece = true; }
+                    else break;
+                }
+                int row = startRow - 1;
+                hasSeenAPiece = false;
+                //as far up
+                while(row > 0)
+                {
+                    row++;
+                    if (board[row][startFile - 1].Equals("--")) moves.Add((row + 1) + "," + (startFile));
+                    else if (!board[row][startFile - 1][0].Equals(turn) && !hasSeenAPiece) moves.Add((row + 1) + "," + (startFile));
+                    else break;
+                }
+                //as far down
+                while(row > 7)
+                {
+                    row--;
+                    if (board[row][startFile - 1].Equals("--")) moves.Add((row + 1) + "," + (startFile));
+                    else if (!board[row][startFile - 1][0].Equals(turn) && !hasSeenAPiece) moves.Add((row + 1) + "," + (startFile));
+                    else break;
+                }
             }
-            else if(turn.Equals('b'))
-            {
-
-            }
+            return moves;
         }
     }
 }
