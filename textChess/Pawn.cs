@@ -27,7 +27,7 @@ namespace textChess
                 if (startRow - 1 == 1 && board[(startRow - 1) + 1][startFile - 1].Equals("--") && board[(startRow - 1) + 2][startFile - 1].Equals("--")) { moves.Add(startFile + "," + (startRow + 2)); moves.Add(startFile + "," + (startRow + 1)); }
                 else if (board[(startRow - 1) + 1][startFile - 1].Equals("--")) moves.Add(startFile + "," + (startRow + 1));
 
-                if (startFile != 8 && !board[startRow][startFile].Equals("--")) moves.Add(startFile + "," + startFile);
+                if (startFile != 8 && !board[startRow][startFile].Equals("--")) moves.Add(startFile + "," + startRow);
                 if (startFile != 1 && !board[startRow][startFile - 2].Equals("--")) moves.Add((startFile - 1) + "," + (startRow + 1));
             }
             return moves;
