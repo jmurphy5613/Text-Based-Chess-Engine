@@ -78,6 +78,7 @@
     <Compile Include="Knight.cs" />
     <Compile Include="Pawn.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Queen.cs" />
     <Compile Include="Rook.cs" />
   </ItemGroup>
   <ItemGroup>

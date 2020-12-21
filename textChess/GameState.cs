@@ -10,8 +10,8 @@ namespace textChess
     {
         /*
         List of things to add - 
-        1. Create a dictionary that has the corresponding letters to numbers for selecting a piece
-        2. Enpassant
+        1. add logic for the game
+        2. 
         */
 
         private string[][] board;
@@ -65,6 +65,7 @@ namespace textChess
             else if (currentPiece[1].Equals('R')) legalMoves = Rook.FindLegalMoves(getBoard(), startFile, startRow, turn);
             else if (currentPiece[1].Equals('N')) legalMoves = Knight.FindLegalMoves(getBoard(), startFile, startRow, turn);
             else if (currentPiece[1].Equals('B')) legalMoves = Bishop.FindLegalMoves(getBoard(), startFile, startRow, turn);
+            else if (currentPiece[1].Equals('Q')) legalMoves = Queen.FindLegalMoves(getBoard(), startFile, startRow, turn);
 
             if (legalMoves.Count() == 0) { Console.WriteLine("There are no leagal moves for this piece"); return new List<string>(); }
             return legalMoves;
