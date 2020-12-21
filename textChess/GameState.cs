@@ -16,7 +16,7 @@ namespace textChess
 
         private string[][] board;
         private char turn;
-        public GameState()                  //1,7
+        public GameState()              
         {
             board = new string[8][]; 
             //This is the first state of the board
@@ -27,7 +27,7 @@ namespace textChess
             board[4] = new string[8] { "--", "--", "--", "--", "--", "--", "--", "--" };
             board[5] = new string[8] { "--", "--", "--", "--", "--", "--", "--", "--" };
             board[6] = new string[8] { "wP", "wP", "wP", "wP", "wP", "wP", "wP", "wP" }; 
-            board[7] = new string[8] { "wR", "wN", "wB", "wQ", "wK", "wB", "wN", "wR" }; //2,8
+            board[7] = new string[8] { "wR", "wN", "wB", "wQ", "wK", "wB", "wN", "wR" }; 
             //sets the current turn to white
             turn = 'w';
         }
@@ -70,6 +70,11 @@ namespace textChess
             if (legalMoves.Count() == 0) { Console.WriteLine("There are no leagal moves for this piece"); return new List<string>(); }
             return legalMoves;
  
+        }
+        //this will based off the previous move if the person whos turn is passed is in check
+        public static bool isCheck(string[][] board, char turn)
+        {
+
         }
 
         //Prints the board

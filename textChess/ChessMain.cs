@@ -8,6 +8,7 @@ namespace textChess
 {
     public class ChessMain
     {
+        //This will maintain the acutal game element
         static void Main(string[] args)
         {
             while (true)
