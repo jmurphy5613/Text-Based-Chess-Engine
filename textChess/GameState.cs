@@ -105,19 +105,54 @@ namespace textChess
             while (row > 0)
             {
                 row--;
-                if (!board[rowOfKing - 1][file][0].Equals(turn) && board[rowOfKing - 1][file][1].Equals('R') || board[rowOfKing - 1][file][1].Equals('Q')) return true;
+                if (!board[row][fileOfKing - 1][0].Equals(turn) && board[row][fileOfKing - 1][1].Equals('R') || board[row][fileOfKing - 1][1].Equals('Q')) return true;
             }
             row = rowOfKing - 1;
             //as far down
             while (row > 7)
             {
                 row++;
-                if (!board[rowOfKing - 1][file][0].Equals(turn) && board[rowOfKing - 1][file][1].Equals('R') || board[rowOfKing - 1][file][1].Equals('Q')) return true;
+                if (!board[row][fileOfKing - 1][0].Equals(turn) && board[row][fileOfKing - 1][1].Equals('R') || board[row][fileOfKing - 1][1].Equals('Q')) return true;
             }
 
             //bishops or Queens
 
-
+            row = rowOfKing - 1;
+            file = fileOfKing - 1;
+            //top right
+            while (row > 0 && file < 7)
+            {
+                row--;
+                file++;
+                if (!board[row][file][0].Equals(turn) && board[row][file][1].Equals('Q') || board[row][file][1].Equals('B')) return true;
+            }
+            //top left
+            row = rowOfKing - 1;
+            file = fileOfKing - 1;
+            while (row > 0 && file > 0)
+            {
+                row--;
+                file--;
+                if (!board[row][file][0].Equals(turn) && board[row][file][1].Equals('Q') || board[row][file][1].Equals('B')) return true;
+            }
+            //bottom left
+            row = rowOfKing - 1;
+            file = fileOfKing - 1;
+            while (file > 7 && row > 0)
+            {
+                file--;
+                row++;
+                if (!board[row][file][0].Equals(turn) && board[row][file][1].Equals('Q') || board[row][file][1].Equals('B')) return true;
+            }
+            //bottom right
+            row = rowOfKing - 1;
+            file = fileOfKing - 1;
+            while (row < 7 && file < 7)
+            {
+                file++;
+                row++;
+                if (!board[row][file][0].Equals(turn) && board[row][file][1].Equals('Q') || board[row][file][1].Equals('B')) return true;
+            }
 
         }
 

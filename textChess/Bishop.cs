@@ -18,8 +18,8 @@ namespace textChess
             {
                 row--;
                 file++;
-                if (board[row - 1][file + 1].Equals("--")) moves.Add((file + 2) + "," + row);
-                else if (!board[row - 1][file + 1][0].Equals(turn)) { moves.Add((file + 2) + "," + row); break; }
+                if (board[row][file].Equals("--")) moves.Add((file + 1) + "," + (row + 1));
+                else if (!board[row][file][0].Equals(turn)) { moves.Add((file + 1) + "," + (row + 1)); break; }
                 else break;
             }
             //top left
@@ -29,8 +29,8 @@ namespace textChess
             {
                 row--;
                 file--;
-                if (board[row - 1][file - 1].Equals("--")) moves.Add(file + "," + row);
-                else if (!board[row - 1][file - 1][0].Equals(turn)) { moves.Add(file + "," + row); break; }
+                if (board[row][file].Equals("--")) moves.Add((file + 1) + "," + (row + 1));
+                else if (!board[row][file][0].Equals(turn)) { moves.Add((file + 1) + "," + (row + 1)); break; }
                 else break;
 
             }
@@ -41,8 +41,8 @@ namespace textChess
             {
                 file--;
                 row++;
-                if (board[row + 1][file - 1].Equals("--")) moves.Add(file + "," + (row + 2));
-                else if (!board[row + 1][file - 1][0].Equals(turn)) { moves.Add(file + "," + (row + 2)); break; }
+                if (board[row][file].Equals("--")) moves.Add((file + 1) + "," + (row + 1));
+                else if (!board[row][file][0].Equals(turn)) { moves.Add((file + 1) + "," + (row + 1)); break; }
                 else break;
             }
             //bottom right
@@ -52,8 +52,8 @@ namespace textChess
             {
                 file++;
                 row++;
-                if (board[row + 1][file + 1].Equals("--")) moves.Add((file + 2) + "," + (row + 2));
-                else if (!board[row + 1][file + 1][0].Equals(turn)) { moves.Add((file + 2) + "," + (row + 2)); break; }
+                if (board[row][file].Equals("--")) moves.Add((file + 1) + "," + (row + 1));
+                else if (!board[row][file][0].Equals(turn)) { moves.Add((file + 1) + "," + (row + 1)); break; }
                 else break;
             }
             return moves;
