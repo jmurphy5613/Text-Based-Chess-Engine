@@ -16,6 +16,8 @@ namespace textChess
 
         private string[][] board;
         private char turn;
+        private King W;
+        private King B;
         public GameState()              
         {
             board = new string[8][]; 
@@ -30,6 +32,8 @@ namespace textChess
             board[7] = new string[8] { "wR", "wN", "wB", "wQ", "wK", "wB", "wN", "wR" }; 
             //sets the current turn to white
             turn = 'w';
+            W = new King('w');
+            B = new King('b');
         }
 
         public string[][] getBoard()
@@ -71,8 +75,17 @@ namespace textChess
             return legalMoves;
  
         }
+
+        //checks if the current players turn is in check, in order to display it in the console 
+        public bool isCheck(string[][] tempBoard, char turn)
+        {
+            int fileOfKing, rowOfKing;
+            if (turn.Equals('w')) fileOfKing = 
+
+        }
+
         //this will based off the previous move if the person whos turn is passed is in check
-        public static bool isCheck(string[][] board, char turn)
+        public bool isCheck(string[][] tempBoard, char turn, int startFile, int startRow, int endFile, int endRow)
         {
 
         }

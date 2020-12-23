@@ -34,6 +34,16 @@ namespace textChess
             return moves;
         }
 
+        public int getRow()
+        {
+            return row;
+        }
+
+        public int getFile()
+        {
+            return file;
+        }
+
         public void setRow(int newRow)
         {
             row = newRow;
