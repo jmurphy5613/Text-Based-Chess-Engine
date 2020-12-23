@@ -24,6 +24,16 @@ namespace textChess
             }
         }
 
+        public static List<string> FindLegalMoves(string[][] board, int startFile, int startRow, char turn)
+        {
+            List<string> moves = new List<string>();
+            if (startFile < 8) moves.Add((startFile + 1) + "," + startRow);
+            if (startFile > 1) moves.Add((startFile - 1) + "," + startRow);
+            if (startRow < 8) moves.Add(startFile + "," + (startRow + 1));
+            if (startRow > 1) moves.Add(startFile + "," + (startRow - 1));
+            return moves;
+        }
+
         public void setRow(int newRow)
         {
             row = newRow;
