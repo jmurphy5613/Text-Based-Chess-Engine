@@ -16,44 +16,45 @@ namespace textChess
             //top right
             while(row > 0 && file < 7 )
             {
+                row--;
+                file++;
                 if (board[row - 1][file + 1].Equals("--")) moves.Add((file + 2) + "," + row);
                 else if (!board[row - 1][file + 1][0].Equals(turn)) { moves.Add((file + 2) + "," + row); break; }
                 else break;
-                row--;
-                file++;
             }
             //top left
             row = startRow - 1;
             file = startFile - 1;
             while(row > 0 && file > 0)
             {
+                row--;
+                file--;
                 if (board[row - 1][file - 1].Equals("--")) moves.Add(file + "," + row);
                 else if (!board[row - 1][file - 1][0].Equals(turn)) { moves.Add(file + "," + row); break; }
                 else break;
-                row--;
-                file--;
+
             }
             //bottom left
             row = startRow - 1;
             file = startFile - 1;
             while (file > 7 && row > 0)
             {
+                file--;
+                row++;
                 if (board[row + 1][file - 1].Equals("--")) moves.Add(file + "," + (row + 2));
                 else if (!board[row + 1][file - 1][0].Equals(turn)) { moves.Add(file + "," + (row + 2)); break; }
                 else break;
-                file--;
-                row++;
             }
             //bottom right
             row = startRow - 1;
             file = startFile - 1;
             while (row < 7 && file < 7)
             {
+                file++;
+                row++;
                 if (board[row + 1][file + 1].Equals("--")) moves.Add((file + 2) + "," + (row + 2));
                 else if (!board[row + 1][file + 1][0].Equals(turn)) { moves.Add((file + 2) + "," + (row + 2)); break; }
                 else break;
-                file++;
-                row++;
             }
             return moves;
         }

@@ -8,19 +8,20 @@ namespace textChess
 {
     public class King
     {
+        //1 indexed
         private int row;
         private int file;
         public King(char turn)
         {
             if (turn.Equals('w'))
             {
-                this.row = 7;
-                this.file = 4;
+                this.row = 8;
+                this.file = 5;
             }
             else if (turn.Equals('b'))
             {
-                this.row = 0;
-                this.file = 4;
+                this.row = 1;
+                this.file = 5;
             }
         }
 

@@ -39,6 +39,7 @@ namespace textChess
                 else if (!board[row][startFile - 1][0].Equals(turn)) { moves.Add((startFile) + "," + (row + 1)); break; }
                 else break;
             }
+            row = startRow - 1;
             //as far down
             while (row > 7)
             {

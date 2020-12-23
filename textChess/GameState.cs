@@ -77,10 +77,47 @@ namespace textChess
         }
 
         //checks if the current players turn is in check, in order to display it in the console 
-        public bool isCheck(string[][] tempBoard, char turn)
+        public bool isCheck(string[][] board, char turn)
         {
+            //set values
             int fileOfKing, rowOfKing;
-            if (turn.Equals('w')) fileOfKing = 
+            if (turn.Equals('w')) { fileOfKing = (W.getFile()); rowOfKing = (W.getRow()); }
+            else { fileOfKing = (B.getFile()); rowOfKing = (B.getRow()); }
+
+            //check for attacking pieces
+            //rooks or queens
+            int file = fileOfKing - 1;
+            //as far to the right
+            while (file < 7)
+            {
+                file++;
+                if (!board[rowOfKing - 1][file][0].Equals(turn) && board[rowOfKing - 1][file][1].Equals('R') || board[rowOfKing - 1][file][1].Equals('Q')) return true;
+            }
+            file = fileOfKing - 1;
+            //as far to the left
+            while (file > 0)
+            {
+                file--;
+                if (!board[rowOfKing - 1][file][0].Equals(turn) && board[rowOfKing - 1][file][1].Equals('R') || board[rowOfKing - 1][file][1].Equals('Q')) return true;
+            }
+            int row = rowOfKing - 1;
+            //as far up
+            while (row > 0)
+            {
+                row--;
+                if (!board[rowOfKing - 1][file][0].Equals(turn) && board[rowOfKing - 1][file][1].Equals('R') || board[rowOfKing - 1][file][1].Equals('Q')) return true;
+            }
+            row = rowOfKing - 1;
+            //as far down
+            while (row > 7)
+            {
+                row++;
+                if (!board[rowOfKing - 1][file][0].Equals(turn) && board[rowOfKing - 1][file][1].Equals('R') || board[rowOfKing - 1][file][1].Equals('Q')) return true;
+            }
+
+            //bishops or Queens
+
+
 
         }
 
