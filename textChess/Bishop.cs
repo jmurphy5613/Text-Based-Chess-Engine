@@ -10,7 +10,7 @@ namespace textChess
     {
         public static List<string> FindLegalMoves(string[][] board, int startFile, int startRow, char turn)
         {
-            List<string> moves = new List<string>();
+            List<string> firstMoves = new List<string>();
             int row = startRow - 1;
             int file = startFile - 1;
             //top right
@@ -18,8 +18,8 @@ namespace textChess
             {
                 row--;
                 file++;
-                if (board[row][file].Equals("--")) moves.Add((file + 1) + "," + (row + 1));
-                else if (!board[row][file][0].Equals(turn)) { moves.Add((file + 1) + "," + (row + 1)); break; }
+                if (board[row][file].Equals("--")) firstMoves.Add((file + 1) + "," + (row + 1));
+                else if (!board[row][file][0].Equals(turn)) { firstMoves.Add((file + 1) + "," + (row + 1)); break; }
                 else break;
             }
             //top left
@@ -29,8 +29,8 @@ namespace textChess
             {
                 row--;
                 file--;
-                if (board[row][file].Equals("--")) moves.Add((file + 1) + "," + (row + 1));
-                else if (!board[row][file][0].Equals(turn)) { moves.Add((file + 1) + "," + (row + 1)); break; }
+                if (board[row][file].Equals("--")) firstMoves.Add((file + 1) + "," + (row + 1));
+                else if (!board[row][file][0].Equals(turn)) { firstMoves.Add((file + 1) + "," + (row + 1)); break; }
                 else break;
 
             }
@@ -41,8 +41,8 @@ namespace textChess
             {
                 file--;
                 row++;
-                if (board[row][file].Equals("--")) moves.Add((file + 1) + "," + (row + 1));
-                else if (!board[row][file][0].Equals(turn)) { moves.Add((file + 1) + "," + (row + 1)); break; }
+                if (board[row][file].Equals("--")) firstMoves.Add((file + 1) + "," + (row + 1));
+                else if (!board[row][file][0].Equals(turn)) { firstMoves.Add((file + 1) + "," + (row + 1)); break; }
                 else break;
             }
             //bottom right
@@ -52,10 +52,25 @@ namespace textChess
             {
                 file++;
                 row++;
-                if (board[row][file].Equals("--")) moves.Add((file + 1) + "," + (row + 1));
-                else if (!board[row][file][0].Equals(turn)) { moves.Add((file + 1) + "," + (row + 1)); break; }
+                if (board[row][file].Equals("--")) firstMoves.Add((file + 1) + "," + (row + 1));
+                else if (!board[row][file][0].Equals(turn)) { firstMoves.Add((file + 1) + "," + (row + 1)); break; }
                 else break;
             }
+
+            List<string> moves = new List<string>();
+
+            for (int i = 0; i < firstMoves.Count(); i++)
+            {
+                int listFile, listRow;
+                var x = firstMoves[i].Split(',');
+                listFile = Int32.Parse(x[0]);
+                listRow = Int32.Parse(x[1]);
+
+                if (GameState.isCheck(board, turn, startFile, startRow, listFile, listRow)) continue;
+                else moves.Add(listFile + "," + listRow);
+
+            }
+
             return moves;
         }
     }

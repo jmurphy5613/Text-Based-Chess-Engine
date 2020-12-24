@@ -27,11 +27,26 @@ namespace textChess
 
         public static List<string> FindLegalMoves(string[][] board, int startFile, int startRow, char turn)
         {
+            List<string> firstMoves = new List<string>();
+            if (startFile < 8) firstMoves.Add((startFile + 1) + "," + startRow);
+            if (startFile > 1) firstMoves.Add((startFile - 1) + "," + startRow);
+            if (startRow < 8) firstMoves.Add(startFile + "," + (startRow + 1));
+            if (startRow > 1) firstMoves.Add(startFile + "," + (startRow - 1));
+
             List<string> moves = new List<string>();
-            if (startFile < 8) moves.Add((startFile + 1) + "," + startRow);
-            if (startFile > 1) moves.Add((startFile - 1) + "," + startRow);
-            if (startRow < 8) moves.Add(startFile + "," + (startRow + 1));
-            if (startRow > 1) moves.Add(startFile + "," + (startRow - 1));
+
+            for (int i = 0; i < firstMoves.Count(); i++)
+            {
+                int listFile, listRow;
+                var x = firstMoves[i].Split(',');
+                listFile = Int32.Parse(x[0]);
+                listRow = Int32.Parse(x[1]);
+
+                if (GameState.isCheck(board, turn, startFile, startRow, listFile, listRow)) continue;
+                else moves.Add(listFile + "," + listRow);
+
+            }
+
             return moves;
         }
 

@@ -48,7 +48,7 @@ namespace textChess
         }
 
         //Move function
-        public void Move(string[][] board, int startFile, int startRow, int endFile, int endRow)
+        public static void Move(string[][] board, int startFile, int startRow, int endFile, int endRow)
         {
             //This function is not designed to check for legal moves, or to check if the current move causes check or checkmate
             string piece = board[startRow - 1][startFile - 1];
@@ -78,7 +78,7 @@ namespace textChess
         }
 
         //checks if the current players turn is in check, in order to display it in the console 
-        public bool isCheck(string[][] board, char turn)
+        public static bool isCheck(string[][] board, char turn)
         {
             //set values
             int fileOfKing, rowOfKing;
@@ -182,7 +182,7 @@ namespace textChess
 
         //this would check if a move will put themself in check
         //used to prune legal moves,  ex. pins, king moves, etc.
-        public bool isCheck(string[][] board, char turn, int startFile, int startRow, int endFile, int endRow)
+        public static bool isCheck(string[][] board, char turn, int startFile, int startRow, int endFile, int endRow)
         {
             string[][] tempBoard = new string[8][];
 

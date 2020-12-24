@@ -10,11 +10,26 @@ namespace textChess
     {
         public static List<string> FindLegalMoves(string[][] board, int startFile, int startRow, char turn)
         {
+            List<string> firstMoves = new List<string>();
+            List<string> firstMoves2 = new List<string>();
+            firstMoves = Bishop.FindLegalMoves(board, startFile, startRow, turn);
+            firstMoves2 = Rook.FindLegalMoves(board, startFile, startRow, turn);
+            firstMoves.AddRange(firstMoves2);
+
             List<string> moves = new List<string>();
-            List<string> moves2 = new List<string>();
-            moves = Bishop.FindLegalMoves(board, startFile, startRow, turn);
-            moves2 = Rook.FindLegalMoves(board, startFile, startRow, turn);
-            moves.AddRange(moves2);
+
+            for (int i = 0; i < firstMoves.Count(); i++)
+            {
+                int listFile, listRow;
+                var x = firstMoves[i].Split(',');
+                listFile = Int32.Parse(x[0]);
+                listRow = Int32.Parse(x[1]);
+
+                if (GameState.isCheck(board, turn, startFile, startRow, listFile, listRow)) continue;
+                else moves.Add(listFile + "," + listRow);
+
+            }
+
             return moves;
         }
     }
