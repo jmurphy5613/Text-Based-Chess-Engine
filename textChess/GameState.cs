@@ -154,12 +154,35 @@ namespace textChess
                 if (!board[row][file][0].Equals(turn) && board[row][file][1].Equals('Q') || board[row][file][1].Equals('B')) return true;
             }
 
+            //knights
+
+            if ((rowOfKing - 1) - 2 >= 0 && (fileOfKing - 1) - 1 >= 0 && !board[rowOfKing - 3][fileOfKing - 2][0].Equals(turn) && !board[rowOfKing - 3][fileOfKing - 2][1].Equals('N')) return true;
+            if ((fileOfKing - 1) - 2 >= 0 && (rowOfKing - 1) - 1 >= 0 && !board[rowOfKing - 2][fileOfKing - 3][0].Equals(turn) && !board[rowOfKing - 2][fileOfKing - 3][1].Equals('N')) return true;
+            if ((rowOfKing - 1) - 2 >= 0 && (fileOfKing - 1) + 1 <= 7 && !board[rowOfKing - 3][fileOfKing][0].Equals(turn) && !board[rowOfKing - 3][fileOfKing][1].Equals('N')) return true;
+            if ((fileOfKing - 1) + 2 <= 7 && (rowOfKing - 1) - 1 >= 0 && !board[rowOfKing - 2][fileOfKing + 1][0].Equals(turn) && !board[rowOfKing - 2][fileOfKing + 1][1].Equals('N')) return true;
+            if ((rowOfKing - 1) + 2 <= 7 && (fileOfKing - 1) + 1 <= 7 && !board[rowOfKing + 1][fileOfKing][0].Equals(turn) && !board[rowOfKing + 1][fileOfKing][1].Equals('N')) return true;
+            if ((fileOfKing - 1) + 2 <= 7 && (rowOfKing - 1) + 1 <= 7 && !board[rowOfKing][fileOfKing + 1][0].Equals(turn) && !board[rowOfKing][fileOfKing + 1][1].Equals('N')) return true;
+            if ((fileOfKing - 1) - 2 >= 0 && (rowOfKing - 1) + 1 <= 7 && !board[rowOfKing][fileOfKing - 3][0].Equals(turn) && !board[rowOfKing][fileOfKing - 3][1].Equals('N')) return true; 
+
+            //pawns
+
+            if(turn.Equals('w'))
+            {
+                if (fileOfKing != 1 && !board[rowOfKing - 2][fileOfKing - 2][0].Equals(turn) && board[rowOfKing - 2][fileOfKing - 2][1].Equals('P')) return true;
+                if (fileOfKing != 8 && !board[rowOfKing - 2][fileOfKing][0].Equals(turn) && board[rowOfKing - 2][fileOfKing][1].Equals('P')) return true;
+            }
+            else
+            {
+                if (fileOfKing != 1 && !board[rowOfKing][fileOfKing - 2][0].Equals(turn) && board[rowOfKing][fileOfKing - 2][1].Equals('P')) return true;
+                if (fileOfKing != 8 && !board[rowOfKing][fileOfKing][0].Equals(turn) && board[rowOfKing][fileOfKing][1].Equals('P')) return true;
+            }
+            return false;
         }
 
         //this will based off the previous move if the person whos turn is passed is in check
-        public bool isCheck(string[][] tempBoard, char turn, int startFile, int startRow, int endFile, int endRow)
+        public bool isCheck(string[][] board, char turn, int startFile, int startRow, int endFile, int endRow)
         {
-
+            string[][] tempBoard = board;
         }
 
         //Prints the board
