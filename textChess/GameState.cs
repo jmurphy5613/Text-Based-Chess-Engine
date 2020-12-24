@@ -179,10 +179,18 @@ namespace textChess
             return false;
         }
 
-        //this will based off the previous move if the person whos turn is passed is in check
+        //this would check if a move will put themself in check
+        //used to prune legal moves,  ex. pins, king moves, etc.
         public bool isCheck(string[][] board, char turn, int startFile, int startRow, int endFile, int endRow)
         {
-            string[][] tempBoard = board;
+            string[][] tempBoard = new string[8][];
+
+            for (int i = 0; i < 8; i++)
+                for (int j = 0; j < 8; j++)
+                    tempBoard[i][j] = board[i][j];
+
+            Move(tempBoard, startFile, startRow, endFile, endRow);
+            return isCheck(tempBoard, turn);
         }
 
         //Prints the board
