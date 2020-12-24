@@ -70,8 +70,9 @@ namespace textChess
             else if (currentPiece[1].Equals('N')) legalMoves = Knight.FindLegalMoves(getBoard(), startFile, startRow, turn);
             else if (currentPiece[1].Equals('B')) legalMoves = Bishop.FindLegalMoves(getBoard(), startFile, startRow, turn);
             else if (currentPiece[1].Equals('Q')) legalMoves = Queen.FindLegalMoves(getBoard(), startFile, startRow, turn);
+            else if (currentPiece[1].Equals('K')) legalMoves = King.FindLegalMoves(getBoard(), startFile, startRow, turn);
 
-            if (legalMoves.Count() == 0) { Console.WriteLine("There are no leagal moves for this piece"); return new List<string>(); }
+            if (legalMoves.Count() == 0) return new List<string>(); 
             return legalMoves;
  
         }
@@ -191,6 +192,31 @@ namespace textChess
 
             Move(tempBoard, startFile, startRow, endFile, endRow);
             return isCheck(tempBoard, turn);
+        }
+
+        public bool isCheckmate(string[][] board, char turn)
+        {
+            //bruteforce solution
+            for(int i = 0; i < 8; i++)
+            {
+                for(int j = 0; j < 8; j++)
+                {
+                    List<string> legalMoves = new List<string>();
+                    string currentPiece = board[i][j];
+                    if (currentPiece.Equals("--")) { continue; }
+                    else if (!currentPiece[0].Equals(turn)) { continue; }        //you add 1 to the variabless to make them 1 indexed
+                    else if (currentPiece[1].Equals('P')) legalMoves = Pawn.FindLegalMoves(getBoard(), j + 1, i + 1, turn);
+                    else if (currentPiece[1].Equals('R')) legalMoves = Rook.FindLegalMoves(getBoard(), j + 1, i + 1, turn);
+                    else if (currentPiece[1].Equals('N')) legalMoves = Knight.FindLegalMoves(getBoard(), j + 1, i + 1, turn);
+                    else if (currentPiece[1].Equals('B')) legalMoves = Bishop.FindLegalMoves(getBoard(), j + 1, i + 1, turn);
+                    else if (currentPiece[1].Equals('Q')) legalMoves = Queen.FindLegalMoves(getBoard(), j + 1, i + 1, turn);
+                    else if (currentPiece[1].Equals('K')) legalMoves = King.FindLegalMoves(getBoard(), j + 1, i + 1, turn);
+
+                    //check if the piece has any legal moves
+                    if (legalMoves.Count() != 0) return false;
+                }
+            }
+            return true;
         }
 
         //Prints the board
