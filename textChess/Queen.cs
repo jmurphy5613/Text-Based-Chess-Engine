@@ -8,12 +8,12 @@ namespace textChess
 {
     public class Queen
     {
-        public static List<string> FindLegalMoves(string[][] board, int startFile, int startRow, char turn)
+        public static List<string> FindLegalMoves(string[][] board, int startFile, int startRow, char turn, GameState game)
         {
             List<string> firstMoves = new List<string>();
             List<string> firstMoves2 = new List<string>();
-            firstMoves = Bishop.FindLegalMoves(board, startFile, startRow, turn);
-            firstMoves2 = Rook.FindLegalMoves(board, startFile, startRow, turn);
+            firstMoves = Bishop.FindLegalMoves(board, startFile, startRow, turn, game);
+            firstMoves2 = Rook.FindLegalMoves(board, startFile, startRow, turn, game);
             firstMoves.AddRange(firstMoves2);
 
             List<string> moves = new List<string>();
@@ -25,7 +25,7 @@ namespace textChess
                 listFile = Int32.Parse(x[0]);
                 listRow = Int32.Parse(x[1]);
 
-                if (GameState.isCheck(board, turn, startFile, startRow, listFile, listRow)) continue;
+                if (game.isCheck(board, turn, startFile, startRow, listFile, listRow)) continue;
                 else moves.Add(listFile + "," + listRow);
 
             }

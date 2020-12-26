@@ -8,7 +8,7 @@ namespace textChess
 {
     public class Knight
     {
-        public static List<string> FindLegalMoves(string[][] board, int startFile, int startRow, char turn)
+        public static List<string> FindLegalMoves(string[][] board, int startFile, int startRow, char turn, GameState game)
         {
             List<string> firstMoves = new List<string>();
             if ((startRow - 1) - 2 >= 0 && (startFile - 1) - 1 >= 0 && !board[startRow - 3][startFile - 2][0].Equals(turn)) firstMoves.Add((startFile - 1) + "," + (startRow - 2));
@@ -28,7 +28,7 @@ namespace textChess
                 listFile = Int32.Parse(x[0]);
                 listRow = Int32.Parse(x[1]);
 
-                if (GameState.isCheck(board, turn, startFile, startRow, listFile, listRow)) continue;
+                if (game.isCheck(board, turn, startFile, startRow, listFile, listRow)) continue;
                 else moves.Add(listFile + "," + listRow);
 
             }

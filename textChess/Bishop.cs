@@ -8,7 +8,7 @@ namespace textChess
 {
     public class Bishop
     {
-        public static List<string> FindLegalMoves(string[][] board, int startFile, int startRow, char turn)
+        public static List<string> FindLegalMoves(string[][] board, int startFile, int startRow, char turn, GameState game)
         {
             List<string> firstMoves = new List<string>();
             int row = startRow - 1;
@@ -66,7 +66,7 @@ namespace textChess
                 listFile = Int32.Parse(x[0]);
                 listRow = Int32.Parse(x[1]);
 
-                if (GameState.isCheck(board, turn, startFile, startRow, listFile, listRow)) continue;
+                if (game.isCheck(board, turn, startFile, startRow, listFile, listRow)) continue;
                 else moves.Add(listFile + "," + listRow);
 
             }
