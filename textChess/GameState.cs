@@ -219,6 +219,11 @@ namespace textChess
             return true;
         }
 
+        public char getTurn()
+        {
+            return turn;
+        }
+
         //Prints the board
         public void toString()
         {
