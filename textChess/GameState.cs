@@ -92,7 +92,7 @@ namespace textChess
             while (file < 7)
             {
                 file++;
-                if (!board[rowOfKing - 1][file][0].Equals(turn) && board[rowOfKing - 1][file][1].Equals('R') || board[rowOfKing - 1][file][1].Equals('Q')) return true;
+                if (!board[rowOfKing - 1][file][0].Equals(turn) && (board[rowOfKing - 1][file][1].Equals('R') || board[rowOfKing - 1][file][1].Equals('Q'))) return true;
                 else if (board[rowOfKing - 1][file][0].Equals(turn) || !board[rowOfKing - 1][file][0].Equals(turn)) break;
             }
             file = fileOfKing - 1;
@@ -108,7 +108,7 @@ namespace textChess
             while (row > 0)
             {
                 row--;
-                if (!board[row][fileOfKing - 1][0].Equals(turn) && board[row][fileOfKing - 1][1].Equals('R') || board[row][fileOfKing - 1][1].Equals('Q')) return true;
+                if (!board[row][fileOfKing - 1][0].Equals(turn) && (board[row][fileOfKing - 1][1].Equals('R') || board[row][fileOfKing - 1][1].Equals('Q'))) return true;
                 else if (board[row][fileOfKing - 1][0].Equals(turn) || !board[rowOfKing - 1][file][0].Equals(turn)) break;
             }
             row = rowOfKing - 1;
@@ -116,7 +116,7 @@ namespace textChess
             while (row > 7)
             {
                 row++;
-                if (!board[row][fileOfKing - 1][0].Equals(turn) && board[row][fileOfKing - 1][1].Equals('R') || board[row][fileOfKing - 1][1].Equals('Q')) return true;
+                if (!board[row][fileOfKing - 1][0].Equals(turn) && (board[row][fileOfKing - 1][1].Equals('R') || board[row][fileOfKing - 1][1].Equals('Q'))) return true;
                 else if (board[row][fileOfKing - 1][0].Equals(turn) || !board[rowOfKing - 1][file][0].Equals(turn)) break;
             }
 
@@ -139,7 +139,7 @@ namespace textChess
             {
                 row--;
                 file--;
-                if (!board[row][file][0].Equals(turn) && board[row][file][1].Equals('Q') || board[row][file][1].Equals('B')) return true;
+                if (!board[row][file][0].Equals(turn) && (board[row][file][1].Equals('Q') || board[row][file][1].Equals('B'))) return true;
                 else if (board[row][file][0].Equals(turn) || !board[rowOfKing - 1][file][0].Equals(turn)) break;
             }
             //bottom left
@@ -149,7 +149,7 @@ namespace textChess
             {
                 file--;
                 row++;
-                if (!board[row][file][0].Equals(turn) && board[row][file][1].Equals('Q') || board[row][file][1].Equals('B')) return true;
+                if (!board[row][file][0].Equals(turn) && (board[row][file][1].Equals('Q') || board[row][file][1].Equals('B'))) return true;
                 else if (board[row][file][0].Equals(turn) || !board[rowOfKing - 1][file][0].Equals(turn)) break;
             }
             //bottom right
@@ -159,7 +159,7 @@ namespace textChess
             {
                 file++;
                 row++;
-                if (!board[row][file][0].Equals(turn) && board[row][file][1].Equals('Q') || board[row][file][1].Equals('B')) return true;
+                if (!board[row][file][0].Equals(turn) && (board[row][file][1].Equals('Q') || board[row][file][1].Equals('B'))) return true;
                 else if (board[row][file][0].Equals(turn) || !board[rowOfKing - 1][file][0].Equals(turn)) break;
             }
 
