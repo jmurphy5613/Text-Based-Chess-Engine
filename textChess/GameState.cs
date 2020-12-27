@@ -129,7 +129,7 @@ namespace textChess
             {
                 row--;
                 file++;
-                if (!board[row][file][0].Equals(turn) && board[row][file][1].Equals('Q') || board[row][file][1].Equals('B')) return true;
+                if (!board[row][file][0].Equals(turn) && (board[row][file][1].Equals('Q') || board[row][file][1].Equals('B'))) return true;
                 else if (board[row][file][0].Equals(turn) || !board[rowOfKing - 1][file][0].Equals(turn)) break;
             }
             //top left

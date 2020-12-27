@@ -41,7 +41,7 @@ namespace textChess
             }
             row = startRow - 1;
             //as far down
-            while (row > 7)
+            while (row < 7)
             {
                 row++;
                 if (board[row][startFile - 1].Equals("--")) firstMoves.Add((startFile) + "," + (row + 1));
