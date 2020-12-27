@@ -185,6 +185,14 @@ namespace textChess
         public bool isCheck(string[][] board, char turn, int startFile, int startRow, int endFile, int endRow)
         {
             string[][] tempBoard = new string[8][];
+            tempBoard[0] = new string[8] { "bR", "bN", "bB", "bQ", "bK", "bB", "bN", "bR" };
+            tempBoard[1] = new string[8] { "bP", "bP", "bP", "bP", "bP", "bP", "bP", "bP" };
+            tempBoard[2] = new string[8] { "--", "--", "--", "--", "--", "--", "--", "--" };
+            tempBoard[3] = new string[8] { "--", "--", "--", "--", "--", "--", "--", "--" };
+            tempBoard[4] = new string[8] { "--", "--", "--", "--", "--", "--", "--", "--" };
+            tempBoard[5] = new string[8] { "--", "--", "--", "--", "--", "--", "--", "--" };
+            tempBoard[6] = new string[8] { "wP", "wP", "wP", "wP", "wP", "wP", "wP", "wP" };
+            tempBoard[7] = new string[8] { "wR", "wN", "wB", "wQ", "wK", "wB", "wN", "wR" };
 
             for (int i = 0; i < 8; i++)
                 for (int j = 0; j < 8; j++)

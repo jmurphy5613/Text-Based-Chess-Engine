@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="textChess.exe" size="16392">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="textChess.exe" size="16904">
       <assemblyIdentity name="textChess" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>RItXo0cWjd12/87Mjpst5/3Lr4ytiMkrwcIE5uWik1Y=</dsig:DigestValue>
+        <dsig:DigestValue>9Ja0tI/RRue2SdC+KyuiNgmZMo41ao3tkYXmjiiWSz0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
