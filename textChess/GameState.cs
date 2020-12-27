@@ -11,7 +11,7 @@ namespace textChess
         /*
         List of things to add - 
         1. add logic for the game
-        2. 
+        2. fix is check method!!!!!!!!!!
         */
 
         private string[][] board;
@@ -93,13 +93,15 @@ namespace textChess
             {
                 file++;
                 if (!board[rowOfKing - 1][file][0].Equals(turn) && board[rowOfKing - 1][file][1].Equals('R') || board[rowOfKing - 1][file][1].Equals('Q')) return true;
+                else if (board[rowOfKing - 1][file][0].Equals(turn) || !board[rowOfKing - 1][file][0].Equals(turn)) break;
             }
             file = fileOfKing - 1;
             //as far to the left
             while (file > 0)
             {
                 file--;
-                if (!board[rowOfKing - 1][file][0].Equals(turn) && board[rowOfKing - 1][file][1].Equals('R') || board[rowOfKing - 1][file][1].Equals('Q')) return true;
+                if (!board[rowOfKing - 1][file][0].Equals(turn) && (board[rowOfKing - 1][file][1].Equals('R') || board[rowOfKing - 1][file][1].Equals('Q'))) return true;
+                else if (board[rowOfKing - 1][file][0].Equals(turn) || !board[rowOfKing - 1][file][0].Equals(turn)) break;
             }
             int row = rowOfKing - 1;
             //as far up
@@ -107,6 +109,7 @@ namespace textChess
             {
                 row--;
                 if (!board[row][fileOfKing - 1][0].Equals(turn) && board[row][fileOfKing - 1][1].Equals('R') || board[row][fileOfKing - 1][1].Equals('Q')) return true;
+                else if (board[row][fileOfKing - 1][0].Equals(turn) || !board[rowOfKing - 1][file][0].Equals(turn)) break;
             }
             row = rowOfKing - 1;
             //as far down
@@ -114,6 +117,7 @@ namespace textChess
             {
                 row++;
                 if (!board[row][fileOfKing - 1][0].Equals(turn) && board[row][fileOfKing - 1][1].Equals('R') || board[row][fileOfKing - 1][1].Equals('Q')) return true;
+                else if (board[row][fileOfKing - 1][0].Equals(turn) || !board[rowOfKing - 1][file][0].Equals(turn)) break;
             }
 
             //bishops or Queens
@@ -126,6 +130,7 @@ namespace textChess
                 row--;
                 file++;
                 if (!board[row][file][0].Equals(turn) && board[row][file][1].Equals('Q') || board[row][file][1].Equals('B')) return true;
+                else if (board[row][file][0].Equals(turn) || !board[rowOfKing - 1][file][0].Equals(turn)) break;
             }
             //top left
             row = rowOfKing - 1;
@@ -135,6 +140,7 @@ namespace textChess
                 row--;
                 file--;
                 if (!board[row][file][0].Equals(turn) && board[row][file][1].Equals('Q') || board[row][file][1].Equals('B')) return true;
+                else if (board[row][file][0].Equals(turn) || !board[rowOfKing - 1][file][0].Equals(turn)) break;
             }
             //bottom left
             row = rowOfKing - 1;
@@ -144,6 +150,7 @@ namespace textChess
                 file--;
                 row++;
                 if (!board[row][file][0].Equals(turn) && board[row][file][1].Equals('Q') || board[row][file][1].Equals('B')) return true;
+                else if (board[row][file][0].Equals(turn) || !board[rowOfKing - 1][file][0].Equals(turn)) break;
             }
             //bottom right
             row = rowOfKing - 1;
@@ -153,17 +160,18 @@ namespace textChess
                 file++;
                 row++;
                 if (!board[row][file][0].Equals(turn) && board[row][file][1].Equals('Q') || board[row][file][1].Equals('B')) return true;
+                else if (board[row][file][0].Equals(turn) || !board[rowOfKing - 1][file][0].Equals(turn)) break;
             }
 
             //knights
 
-            if ((rowOfKing - 1) - 2 >= 0 && (fileOfKing - 1) - 1 >= 0 && !board[rowOfKing - 3][fileOfKing - 2][0].Equals(turn) && !board[rowOfKing - 3][fileOfKing - 2][1].Equals('N')) return true;
-            if ((fileOfKing - 1) - 2 >= 0 && (rowOfKing - 1) - 1 >= 0 && !board[rowOfKing - 2][fileOfKing - 3][0].Equals(turn) && !board[rowOfKing - 2][fileOfKing - 3][1].Equals('N')) return true;
-            if ((rowOfKing - 1) - 2 >= 0 && (fileOfKing - 1) + 1 <= 7 && !board[rowOfKing - 3][fileOfKing][0].Equals(turn) && !board[rowOfKing - 3][fileOfKing][1].Equals('N')) return true;
-            if ((fileOfKing - 1) + 2 <= 7 && (rowOfKing - 1) - 1 >= 0 && !board[rowOfKing - 2][fileOfKing + 1][0].Equals(turn) && !board[rowOfKing - 2][fileOfKing + 1][1].Equals('N')) return true;
-            if ((rowOfKing - 1) + 2 <= 7 && (fileOfKing - 1) + 1 <= 7 && !board[rowOfKing + 1][fileOfKing][0].Equals(turn) && !board[rowOfKing + 1][fileOfKing][1].Equals('N')) return true;
-            if ((fileOfKing - 1) + 2 <= 7 && (rowOfKing - 1) + 1 <= 7 && !board[rowOfKing][fileOfKing + 1][0].Equals(turn) && !board[rowOfKing][fileOfKing + 1][1].Equals('N')) return true;
-            if ((fileOfKing - 1) - 2 >= 0 && (rowOfKing - 1) + 1 <= 7 && !board[rowOfKing][fileOfKing - 3][0].Equals(turn) && !board[rowOfKing][fileOfKing - 3][1].Equals('N')) return true; 
+            if ((rowOfKing - 1) - 2 >= 0 && (fileOfKing - 1) - 1 >= 0 && !board[rowOfKing - 3][fileOfKing - 2][0].Equals(turn) && board[rowOfKing - 3][fileOfKing - 2][1].Equals('N')) return true;
+            if ((fileOfKing - 1) - 2 >= 0 && (rowOfKing - 1) - 1 >= 0 && !board[rowOfKing - 2][fileOfKing - 3][0].Equals(turn) && board[rowOfKing - 2][fileOfKing - 3][1].Equals('N')) return true;
+            if ((rowOfKing - 1) - 2 >= 0 && (fileOfKing - 1) + 1 <= 7 && !board[rowOfKing - 3][fileOfKing][0].Equals(turn) && board[rowOfKing - 3][fileOfKing][1].Equals('N')) return true;
+            if ((fileOfKing - 1) + 2 <= 7 && (rowOfKing - 1) - 1 >= 0 && !board[rowOfKing - 2][fileOfKing + 1][0].Equals(turn) && board[rowOfKing - 2][fileOfKing + 1][1].Equals('N')) return true;
+            if ((rowOfKing - 1) + 2 <= 7 && (fileOfKing - 1) + 1 <= 7 && !board[rowOfKing + 1][fileOfKing][0].Equals(turn) && board[rowOfKing + 1][fileOfKing][1].Equals('N')) return true;
+            if ((fileOfKing - 1) + 2 <= 7 && (rowOfKing - 1) + 1 <= 7 && !board[rowOfKing][fileOfKing + 1][0].Equals(turn) && board[rowOfKing][fileOfKing + 1][1].Equals('N')) return true;
+            if ((fileOfKing - 1) - 2 >= 0 && (rowOfKing - 1) + 1 <= 7 && !board[rowOfKing][fileOfKing - 3][0].Equals(turn) && board[rowOfKing][fileOfKing - 3][1].Equals('N')) return true; 
 
             //pawns
 
@@ -203,7 +211,7 @@ namespace textChess
         }
 
         public bool isCheckmate(string[][] board, char turn, GameState game)
-        {
+         {
             //bruteforce solution
             for(int i = 0; i < 8; i++)
             {
@@ -212,7 +220,7 @@ namespace textChess
                     List<string> legalMoves = new List<string>();
                     string currentPiece = board[i][j];
                     if (currentPiece.Equals("--")) { continue; }
-                    else if (currentPiece[0].Equals(turn)) { continue; }        //you add 1 to the variabless to make them 1 indexed
+                    else if (!currentPiece[0].Equals(turn)) { continue; }        //you add 1 to the variabless to make them 1 indexed
                     else if (currentPiece[1].Equals('P')) legalMoves = Pawn.FindLegalMoves(getBoard(), j + 1, i + 1, turn, game);
                     else if (currentPiece[1].Equals('R')) legalMoves = Rook.FindLegalMoves(getBoard(), j + 1, i + 1, turn, game);
                     else if (currentPiece[1].Equals('N')) legalMoves = Knight.FindLegalMoves(getBoard(), j + 1, i + 1, turn, game);
