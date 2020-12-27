@@ -53,7 +53,7 @@ namespace textChess
             //This function is not designed to check for legal moves, or to check if the current move causes check or checkmate
             string piece = board[startRow - 1][startFile - 1];
             board[endRow - 1][endFile - 1] = piece;
-            board[startRow - 1][endFile - 1] = "--";
+            board[startRow - 1][startFile - 1] = "--";
         }
         //Find legal moves function
         public List<string> FindLegalMoves(string[][] board, int startFile, int startRow, char turn, GameState game)

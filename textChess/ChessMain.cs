@@ -76,6 +76,7 @@ namespace textChess
                         game.Move(game.getBoard(), startFile, startRow, endFile, endRow);
                     }
                 }
+                game.changeTurn();
 
             }
 
