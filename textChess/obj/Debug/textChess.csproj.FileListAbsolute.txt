@@ -1,4 +1,3 @@
-C:\Users\John Murphy\source\repos\textChess\textChess\bin\Debug\textChess.exe.config
 C:\Users\John Murphy\source\repos\textChess\textChess\bin\Debug\textChess.exe
 C:\Users\John Murphy\source\repos\textChess\textChess\bin\Debug\textChess.pdb
 C:\Users\John Murphy\source\repos\textChess\textChess\obj\Debug\textChess.csproj.CoreCompileInputs.cache
@@ -8,3 +7,4 @@ C:\Users\John Murphy\source\repos\textChess\textChess\bin\Debug\textChess.exe.ma
 C:\Users\John Murphy\source\repos\textChess\textChess\bin\Debug\textChess.application
 C:\Users\John Murphy\source\repos\textChess\textChess\obj\Debug\textChess.exe.manifest
 C:\Users\John Murphy\source\repos\textChess\textChess\obj\Debug\textChess.application
+C:\Users\John Murphy\source\repos\textChess\textChess\obj\Debug\textChess.csprojAssemblyReference.cache

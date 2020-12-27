@@ -212,7 +212,7 @@ namespace textChess
                     List<string> legalMoves = new List<string>();
                     string currentPiece = board[i][j];
                     if (currentPiece.Equals("--")) { continue; }
-                    else if (!currentPiece[0].Equals(turn)) { continue; }        //you add 1 to the variabless to make them 1 indexed
+                    else if (currentPiece[0].Equals(turn)) { continue; }        //you add 1 to the variabless to make them 1 indexed
                     else if (currentPiece[1].Equals('P')) legalMoves = Pawn.FindLegalMoves(getBoard(), j + 1, i + 1, turn, game);
                     else if (currentPiece[1].Equals('R')) legalMoves = Rook.FindLegalMoves(getBoard(), j + 1, i + 1, turn, game);
                     else if (currentPiece[1].Equals('N')) legalMoves = Knight.FindLegalMoves(getBoard(), j + 1, i + 1, turn, game);

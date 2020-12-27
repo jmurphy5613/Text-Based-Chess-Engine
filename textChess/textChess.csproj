@@ -83,7 +83,6 @@
     <Compile Include="Rook.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
     <None Include="textChess_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
