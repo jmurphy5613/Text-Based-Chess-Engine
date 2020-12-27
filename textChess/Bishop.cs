@@ -37,7 +37,7 @@ namespace textChess
             //bottom left
             row = startRow - 1;
             file = startFile - 1;
-            while (file > 7 && row > 0)
+            while (file > 0 && row < 7)
             {
                 file--;
                 row++;

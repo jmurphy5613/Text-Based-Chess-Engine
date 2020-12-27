@@ -145,7 +145,7 @@ namespace textChess
             //bottom left
             row = rowOfKing - 1;
             file = fileOfKing - 1;
-            while (file > 7 && row > 0)
+            while (row < 7 && file > 0)
             {
                 file--;
                 row++;
