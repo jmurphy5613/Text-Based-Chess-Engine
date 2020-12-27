@@ -109,7 +109,7 @@ namespace textChess
             {
                 row--;
                 if (!board[row][fileOfKing - 1][0].Equals(turn) && (board[row][fileOfKing - 1][1].Equals('R') || board[row][fileOfKing - 1][1].Equals('Q'))) return true;
-                else if (board[row][fileOfKing - 1][0].Equals(turn) || !board[rowOfKing - 1][file][0].Equals(turn)) break;
+                else if (board[row][fileOfKing - 1][0].Equals(turn) || !board[row][fileOfKing - 1][0].Equals(turn)) break;
             }
             row = rowOfKing - 1;
             //as far down
@@ -117,7 +117,7 @@ namespace textChess
             {
                 row++;
                 if (!board[row][fileOfKing - 1][0].Equals(turn) && (board[row][fileOfKing - 1][1].Equals('R') || board[row][fileOfKing - 1][1].Equals('Q'))) return true;
-                else if (board[row][fileOfKing - 1][0].Equals(turn) || !board[rowOfKing - 1][file][0].Equals(turn)) break;
+                else if (board[row][fileOfKing - 1][0].Equals(turn) || !board[row][fileOfKing - 1][0].Equals(turn)) break;
             }
 
             //bishops or Queens
