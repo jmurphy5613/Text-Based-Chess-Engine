@@ -130,7 +130,7 @@ namespace textChess
                 row--;
                 file++;
                 if (!board[row][file][0].Equals(turn) && (board[row][file][1].Equals('Q') || board[row][file][1].Equals('B'))) return true;
-                else if (board[row][file][0].Equals(turn) || !board[rowOfKing - 1][file][0].Equals(turn)) break;
+                else if (board[row][file][0].Equals(turn) || !board[row][file][0].Equals(turn)) break;
             }
             //top left
             row = rowOfKing - 1;
@@ -140,7 +140,7 @@ namespace textChess
                 row--;
                 file--;
                 if (!board[row][file][0].Equals(turn) && (board[row][file][1].Equals('Q') || board[row][file][1].Equals('B'))) return true;
-                else if (board[row][file][0].Equals(turn) || !board[rowOfKing - 1][file][0].Equals(turn)) break;
+                else if (board[row][file][0].Equals(turn) || !board[row][file][0].Equals(turn)) break;
             }
             //bottom left
             row = rowOfKing - 1;
@@ -150,7 +150,7 @@ namespace textChess
                 file--;
                 row++;
                 if (!board[row][file][0].Equals(turn) && (board[row][file][1].Equals('Q') || board[row][file][1].Equals('B'))) return true;
-                else if (board[row][file][0].Equals(turn) || !board[rowOfKing - 1][file][0].Equals(turn)) break;
+                else if (board[row][file][0].Equals(turn) || !board[row][file][0].Equals(turn)) break;
             }
             //bottom right
             row = rowOfKing - 1;
@@ -160,7 +160,7 @@ namespace textChess
                 file++;
                 row++;
                 if (!board[row][file][0].Equals(turn) && (board[row][file][1].Equals('Q') || board[row][file][1].Equals('B'))) return true;
-                else if (board[row][file][0].Equals(turn) || !board[rowOfKing - 1][file][0].Equals(turn)) break;
+                else if (board[row][file][0].Equals(turn) || !board[row][file][0].Equals(turn)) break;
             }
 
             //knights
