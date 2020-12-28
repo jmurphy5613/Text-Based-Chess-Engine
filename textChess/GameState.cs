@@ -10,9 +10,10 @@ namespace textChess
     {
         /*
         List of things to add - 
-        1. add logic for the game
-        2. fix is check method!!!!!!!!!!
-        3. fix king movement
+        1. fix king movement
+        2. add castling
+        3. pawn promotion
+        4. check for stalemate
         */
 
         private string[][] board;

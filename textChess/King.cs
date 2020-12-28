@@ -11,17 +11,20 @@ namespace textChess
         //1 indexed
         private int row;
         private int file;
+        private bool hasMoved;
         public King(char turn)
         {
             if (turn.Equals('w'))
             {
                 this.row = 8;
                 this.file = 5;
+                this.hasMoved = false;
             }
             else if (turn.Equals('b'))
             {
                 this.row = 1;
                 this.file = 5;
+                this.hasMoved = false;
             }
         }
 
@@ -48,6 +51,11 @@ namespace textChess
             }
 
             return moves;
+        }
+
+        public bool getHasMoved()
+        {
+            return this.hasMoved;
         }
 
         public int getRow()
