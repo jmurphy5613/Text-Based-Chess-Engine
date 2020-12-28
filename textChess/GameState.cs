@@ -12,6 +12,7 @@ namespace textChess
         List of things to add - 
         1. add logic for the game
         2. fix is check method!!!!!!!!!!
+        3. fix king movement
         */
 
         private string[][] board;
@@ -93,7 +94,7 @@ namespace textChess
             {
                 file++;
                 if (!board[rowOfKing - 1][file][0].Equals(turn) && (board[rowOfKing - 1][file][1].Equals('R') || board[rowOfKing - 1][file][1].Equals('Q'))) return true;
-                else if (board[rowOfKing - 1][file][0].Equals(turn) || !board[rowOfKing - 1][file][0].Equals(turn)) break;
+                else if (board[rowOfKing - 1][file][0].Equals(turn) || !board[rowOfKing - 1][file][0].Equals(turn) && (!board[rowOfKing - 1][file].Equals("--"))) break;
             }
             file = fileOfKing - 1;
             //as far to the left
@@ -101,7 +102,7 @@ namespace textChess
             {
                 file--;
                 if (!board[rowOfKing - 1][file][0].Equals(turn) && (board[rowOfKing - 1][file][1].Equals('R') || board[rowOfKing - 1][file][1].Equals('Q'))) return true;
-                else if (board[rowOfKing - 1][file][0].Equals(turn) || !board[rowOfKing - 1][file][0].Equals(turn)) break;
+                else if (board[rowOfKing - 1][file][0].Equals(turn) || !board[rowOfKing - 1][file][0].Equals(turn) && (!board[rowOfKing - 1][file].Equals("--"))) break;
             }
             int row = rowOfKing - 1;
             //as far up
@@ -109,7 +110,7 @@ namespace textChess
             {
                 row--;
                 if (!board[row][fileOfKing - 1][0].Equals(turn) && (board[row][fileOfKing - 1][1].Equals('R') || board[row][fileOfKing - 1][1].Equals('Q'))) return true;
-                else if (board[row][fileOfKing - 1][0].Equals(turn) || !board[row][fileOfKing - 1][0].Equals(turn)) break;
+                else if (board[row][fileOfKing - 1][0].Equals(turn) || !board[row][fileOfKing - 1][0].Equals(turn) && (!board[row][fileOfKing - 1].Equals("--"))) break;
             }
             row = rowOfKing - 1;
             //as far down
@@ -117,7 +118,7 @@ namespace textChess
             {
                 row++;
                 if (!board[row][fileOfKing - 1][0].Equals(turn) && (board[row][fileOfKing - 1][1].Equals('R') || board[row][fileOfKing - 1][1].Equals('Q'))) return true;
-                else if (board[row][fileOfKing - 1][0].Equals(turn) || !board[row][fileOfKing - 1][0].Equals(turn)) break;
+                else if (board[row][fileOfKing - 1][0].Equals(turn) || !board[row][fileOfKing - 1][0].Equals(turn) && (!board[row][fileOfKing - 1].Equals("--"))) break;
             }
 
             //bishops or Queens
@@ -130,7 +131,7 @@ namespace textChess
                 row--;
                 file++;
                 if (!board[row][file][0].Equals(turn) && (board[row][file][1].Equals('Q') || board[row][file][1].Equals('B'))) return true;
-                else if (board[row][file][0].Equals(turn) || !board[row][file][0].Equals(turn)) break;
+                else if (board[row][file][0].Equals(turn) || !board[row][file][0].Equals(turn) && (!board[row][file].Equals("--"))) break;
             }
             //top left
             row = rowOfKing - 1;
@@ -140,7 +141,7 @@ namespace textChess
                 row--;
                 file--;
                 if (!board[row][file][0].Equals(turn) && (board[row][file][1].Equals('Q') || board[row][file][1].Equals('B'))) return true;
-                else if (board[row][file][0].Equals(turn) || !board[row][file][0].Equals(turn)) break;
+                else if (board[row][file][0].Equals(turn) || !board[row][file][0].Equals(turn) && (!board[row][file].Equals("--"))) break;
             }
             //bottom left
             row = rowOfKing - 1;
@@ -150,7 +151,7 @@ namespace textChess
                 file--;
                 row++;
                 if (!board[row][file][0].Equals(turn) && (board[row][file][1].Equals('Q') || board[row][file][1].Equals('B'))) return true;
-                else if (board[row][file][0].Equals(turn) || !board[row][file][0].Equals(turn)) break;
+                else if (board[row][file][0].Equals(turn) || !board[row][file][0].Equals(turn) && (!board[row][file].Equals("--"))) break;
             }
             //bottom right
             row = rowOfKing - 1;
@@ -160,7 +161,7 @@ namespace textChess
                 file++;
                 row++;
                 if (!board[row][file][0].Equals(turn) && (board[row][file][1].Equals('Q') || board[row][file][1].Equals('B'))) return true;
-                else if (board[row][file][0].Equals(turn) || !board[row][file][0].Equals(turn)) break;
+                else if (board[row][file][0].Equals(turn) || !board[row][file][0].Equals(turn) && (!board[row][file].Equals("--"))) break;
             }
 
             //knights
