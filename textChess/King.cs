@@ -31,10 +31,10 @@ namespace textChess
         public static List<string> FindLegalMoves(string[][] board, int startFile, int startRow, char turn, GameState game)
         {
             List<string> firstMoves = new List<string>();
-            if (startFile < 8) firstMoves.Add((startFile + 1) + "," + startRow);
-            if (startFile > 1) firstMoves.Add((startFile - 1) + "," + startRow);
-            if (startRow < 8) firstMoves.Add(startFile + "," + (startRow + 1));
-            if (startRow > 1) firstMoves.Add(startFile + "," + (startRow - 1));
+            if (startFile < 8 && (board[startFile][startRow - 1].Equals("--") || !board[startFile][startRow - 1][0].Equals(turn))) firstMoves.Add((startFile + 1) + "," + startRow);
+            if (startFile > 1 && (board[startFile][startRow - 1].Equals("--") || !board[startFile - 2][startRow - 1][0].Equals(turn))) firstMoves.Add((startFile - 1) + "," + startRow);
+            if (startRow < 8 && (board[startFile][startRow - 1].Equals("--") || !board[startFile - 1][startRow][0].Equals(turn))) firstMoves.Add(startFile + "," + (startRow + 1));
+            if (startRow > 1 && (board[startFile][startRow - 1].Equals("--") || !board[startFile - 1][startRow - 2][0].Equals(turn))) firstMoves.Add(startFile + "," + (startRow - 1));
 
             List<string> moves = new List<string>();
 
