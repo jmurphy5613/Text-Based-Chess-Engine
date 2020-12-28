@@ -27,7 +27,15 @@ namespace textChess
             bool gameOver = false;
             while(!gameOver)
             {
-                if (game.isCheckmate(game.getBoard(), game.getTurn(), game))
+                //check for stalemate
+                if (!game.isCheck(game.getBoard(), game.getTurn()) && game.isCheckmate(game.getBoard(), game.getTurn(), game))
+                {
+                    Console.WriteLine("The game is a draw");
+                    gameOver = true;
+                }
+
+                //check for checkmate
+                else if (game.isCheckmate(game.getBoard(), game.getTurn(), game))
                 {
                     if (game.getTurn().Equals('w')) { Console.WriteLine("Black wins!"); gameOver = true; }
                     else Console.WriteLine("White wins!");
@@ -37,7 +45,6 @@ namespace textChess
                     game.toString();
                     break;
                 }
-
 
                 bool foundMoves = false;
                 List<string> legalMoves = new List<string>();
