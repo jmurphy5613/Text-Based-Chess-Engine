@@ -29,8 +29,13 @@ namespace textChess
             {
                 if (game.isCheckmate(game.getBoard(), game.getTurn(), game))
                 {
-                    if (game.getTurn().Equals('w')) Console.WriteLine("Black wins!");
+                    if (game.getTurn().Equals('w')) { Console.WriteLine("Black wins!"); gameOver = true; }
                     else Console.WriteLine("White wins!");
+                }
+                if(gameOver)
+                {
+                    game.toString();
+                    break;
                 }
 
 
@@ -79,6 +84,8 @@ namespace textChess
                 game.changeTurn();
 
             }
+            Console.WriteLine("The game is over");
+            Console.ReadLine();
 
         }
     }
